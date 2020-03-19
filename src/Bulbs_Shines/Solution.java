@@ -1,4 +1,4 @@
-package Bulbs_Shines;
+package bulbs_shines;
 
 import java.util.ArrayList;
 import java.util.Collections;

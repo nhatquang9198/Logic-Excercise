@@ -1,4 +1,4 @@
-package Bulbs_Shines;
+package bulbs_shines;
 
 public class Bulb {
 	private boolean isOn;
