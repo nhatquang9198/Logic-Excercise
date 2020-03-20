@@ -39,7 +39,7 @@ public class Solution {
 		int n = matrix.length;
 		int m = matrix[0].length;
 
-		if (n == 1 && m == 1) {
+		if (n == 1 || m == 1) {
 			// matrix size is 1x1
 			return 1;
 		} else {
@@ -52,11 +52,11 @@ public class Solution {
 			int x = 0, y = 0;
 			boolean flag;
 
-			outerloop: for (int length = 2; length <= max_length; length++) {
+			for (int length = 2; length <= max_length; length++) {
 				temp = new int[length][length];
 				flag = false;
 
-				innerloop: for (int row = 0; row < n - size; row++) {
+				for (int row = 0; row < n - size; row++) {
 					for (int column = 0; column < m - size; column++, x = 0) {
 						for (int i = row; i < row + length && x < length; i++, x++, y = 0) {
 							for (int j = column; j < column + length && y < length; j++, y++) {
@@ -74,7 +74,7 @@ public class Solution {
 
 						if (isMagical(temp)) {
 							flag = true;
-//							break innerloop;
+							// break innerloop;
 						}
 					}
 				}
