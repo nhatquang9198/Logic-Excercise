@@ -146,6 +146,7 @@ public class Solution {
 			break;
 		case "Friday":
 			dayOfWeek = 6;
+			break;
 		case "Saturday":
 			dayOfWeek = 7;
 			break;
