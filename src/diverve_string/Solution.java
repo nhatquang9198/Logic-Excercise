@@ -1,7 +1,5 @@
 package diverve_string;
 
-import java.util.Scanner;
-
 public class Solution {
 
 	public static String solution(int a, int b, int c) {

@@ -29,28 +29,13 @@ public class Solution {
 		int day_begin = 0;
 		int day_end = 0;
 		int dayOfWeek = 0;
-
-		Map<Integer, Integer> map = new HashMap<>();
-		map.put(1, 31);
-		if (y % 4 == 0) {
-			map.put(2, 29);
-		} else {
-			map.put(2, 28);
-		}
-		map.put(3, 31);
-		map.put(4, 30);
-		map.put(5, 31);
-		map.put(6, 30);
-		map.put(7, 31);
-		map.put(8, 31);
-		map.put(9, 30);
-		map.put(10, 31);
-		map.put(11, 30);
-		map.put(12, 31);
+		Map<Integer, Integer> map = initiateMonths(y);
 
 		month_begin = convertMonth(a);
 		month_end = convertMonth(b);
-		dayOfWeek = convertDayOfWeek(w) - 1;
+
+		dayOfWeek = convertDayOfWeek(w);
+		dayOfWeek = (dayOfWeek == 1) ? 7 : dayOfWeek - 1;
 
 		for (int month = 1; month <= month_end; month++) {
 			for (int dayOfMonth = 1; dayOfMonth <= map.get(month); dayOfMonth++) {
@@ -65,10 +50,10 @@ public class Solution {
 			}
 		}
 
-		System.out.println(a + " " + b + " " + w);
-		System.out.println(month_begin + " " + month_end + " " + dayOfWeek);
-		System.out.println("day begin: " + day_begin);
-		System.out.println("day end: " + day_end);
+//		System.out.println(a + " " + b + " " + w);
+//		System.out.println(month_begin + " " + month_end + " " + dayOfWeek);
+//		System.out.println("day begin: " + day_begin);
+//		System.out.println("day end: " + day_end);
 
 		LocalDate date_begin = LocalDate.of(y, month_begin, day_begin);
 		LocalDate date_end = LocalDate.of(y, month_end, day_end);
@@ -85,7 +70,6 @@ public class Solution {
 		case "January":
 			month = 1;
 			break;
-
 		case "February":
 			month = 2;
 			break;
@@ -154,6 +138,28 @@ public class Solution {
 
 		return dayOfWeek;
 
+	}
+
+	public static Map<Integer, Integer> initiateMonths(int year) {
+		Map<Integer, Integer> map = new HashMap<>();
+		map.put(1, 31);
+		if (year % 4 == 0) {
+			map.put(2, 29);
+		} else {
+			map.put(2, 28);
+		}
+		map.put(3, 31);
+		map.put(4, 30);
+		map.put(5, 31);
+		map.put(6, 30);
+		map.put(7, 31);
+		map.put(8, 31);
+		map.put(9, 30);
+		map.put(10, 31);
+		map.put(11, 30);
+		map.put(12, 31);
+
+		return map;
 	}
 
 }
